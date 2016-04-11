@@ -1,0 +1,222 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, sans-serif;
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.5;
+    color: #666;
+    background: #333;
+    overflow-y: scroll;
+}
+.clr:before,
+.clr:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+
+/* basic font settings ------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #444;
+}
+h1{ font-size: 1.50em; }
+h2{ font-size: 1.25em; }
+h3{ font-size: 1.00em; }
+
+.main p{
+    margin-bottom: 10px;
+}
+.nomargin{
+    margin: 0 !important;
+}
+
+hr{
+    display: block;
+    width: 100%;
+    height: 0;
+    border: none;
+    border-top: 2px dashed #ccc;
+    margin: 20px 0;
+}
+
+/* links */
+
+a, a:visited{
+    color: #0064FF;
+    text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active{
+    color: #75ABFF;
+}
+
+/* images */
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.icon{
+    display: inline;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* basic layout settings ------------------------------------------------------- */
+
+.header{
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    background: #ddd;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
+}
+
+.search{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.main{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #eee;
+    padding: 15px 15px 10px;
+}
+
+.footer{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ddd;
+    padding: 10px 15px;
+}
+
+/* threads -------------------------------------------------------------------- */
+
+.thread{
+    margin-bottom: 10px;
+}
+.thread:last-of-type{
+    margin-bottom: 0;
+}
+
+.thread-title{
+    font-weight: bold;
+    font-size: 16px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+.thread-rating{
+    font-size: 1em;
+    font-weight: bold;
+    float: right;
+    padding: .25em .5em;
+    margin: 10px;
+    background: #5cb85c;
+    color: #fff;
+}
+
+.thread-content{
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 10px 15px;
+}
+.thread-meta{
+    font-size: 12px;
+    padding-top: 10px;
+    margin-top: 10px;
+    color: #999;
+    border-top: 1px solid #ddd;
+}
+
+.ratingnav{
+    float: right;
+}
+
+/* single-threads */
+
+.single-thread,
+.single-thread .thread-content{
+    margin-bottom: 10px;
+}
+.single-thread h1{
+    margin-bottom: 0;
+}
+.single-thread .thread-rating{
+    font-size: 1.25em;
+    padding: .375em .5em;
+}
+
+/* replies */
+
+.reply{
+    margin-bottom: 10px;
+}
+
+.reply-author{
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+.reply-content{
+    font-size: 12px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 10px 15px;
+}
+
+/* account-page ----------------------------------------------------------------*/
+
+ul.mythreads{
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* navigations ---------------------------------------------------------------- */
+
+.nav li{
+    display: block;
+    height: 1.5em;
+    float: left;
+}
+.nav li a{
+    display: inline-block;
+}
+
+.headernav{
+    float: left;
+}
+.headernav > li > a{
+    margin-right: 5px;
+}
+.usernav{
+    float: right;
+}
+.usernav > li > a{
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 1200px){
+    .header{
+        margin-top: 0;
+}
