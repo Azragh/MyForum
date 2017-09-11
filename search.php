@@ -1,10 +1,6 @@
-<?php require_once "template/header.php";  ?>
+<?php require_once "tmpl/header.php";  ?>
 
-    <div class="main">
+    <h1>Suche</h1>
+    <?php require "inc/thread_search.php"; ?>
 
-        <h1>Suche</h1>
-        <?php require "inc/forum/threadsearch.php"; ?>
-
-    </div>
-
-<?php require_once "template/footer.php";  ?>
+<?php require_once "tmpl/footer.php";  ?>

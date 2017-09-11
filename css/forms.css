@@ -2,7 +2,7 @@
 
 .form-container{
     padding: 10px 15px;
-    background: #f5f5f5;
+    background: #fff;
     border: 1px solid #ddd;
     margin-bottom: 10px;
 }
@@ -16,6 +16,17 @@ label,
 label > *{
     font-size: 13px;
 }
+.separator{
+    display: inline-block;
+    text-align: center;
+    min-width: 10px;
+}
+::-ms-clear,
+::-ms-reveal {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
 
 /* button-size settings */
 
@@ -26,11 +37,12 @@ input[type="reset"],
 input[type="submit"]{
     font-size: 12px;
     padding: 0 10px;
-    border-radius: 3px;
-    height: 30px;
+    border-radius: 4px;
+    min-height: 30px;
     line-height: 30px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    box-shadow: none;
 }
 
 /* input-size settings */
@@ -48,13 +60,43 @@ select{
     border-radius: 3px;
     max-width: 100%;
     width: 230px;
-    height: 30px;
+    min-height: 30px;
     line-height: 30px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    box-shadow: none;
+    vertical-align: middle;
 }
-select{
-    height: 33px;
+
+button .fa{
+    line-height: 2.5;
+}
+
+/* Firefox input-icons */
+@-moz-document url-prefix() {
+    button .fa{
+        vertical-align: top;
+        line-height: 2.3;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    select{
+        line-height: 28px;
+        padding-bottom: 2px;
+    }
+}
+
+/* IE inputs */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    input[type="password"]{
+        height: 28px;
+        line-height: 26px;
+    }
 }
 
 /* textarea-size settings */
@@ -77,17 +119,23 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
     border: none;
-    background: #666;
+    background: #00afd0;
     color: #fff;
+    vertical-align: middle;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.25) inset;
+    border: 1px solid #029EBB;
+    border-bottom: 1px solid #008baf;
 }
 
 /* button-hover settings */
 
-button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
-    background: #888;
+input[type="submit"]:hover,
+button:hover{
+    background: #3FC3DC;
+    border-color: #00afd0;
+    box-shadow: none;
     cursor: pointer;
 }
 
@@ -97,13 +145,27 @@ button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-    background: #777;
+button:focus{
+    background: #008baf;
+    border-color: #008baf;
+    box-shadow: none;
     outline: none;
 }
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+button:active {
+    border-color: #008baf;
+    box-shadow: none;
+    outline: none;
+}
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button > * {
+    position: relative;
+}
+
 
 /* input-style settings */
 
@@ -133,7 +195,7 @@ input[type="search"]:focus,
 textarea:focus,
 select:focus {
     color: #888;
-    border: 1px solid #888;
+    border: 1px solid #aaa;
     outline: none;
 }
 
@@ -141,31 +203,41 @@ select:focus {
 
 input.submit-inline,
 input.submit-inline:visited{
-    color: #0064FF;
+    color: #008baf;
     display: inline;
     background: none;
     margin: 0;
     padding: 0;
+    min-height: 0;
+    border: none;
+    vertical-align: baseline;
+    font: inherit;
 }
 
 input.submit-inline:hover,
 input.submit-inline:focus,
 input.submit-inline:active{
-    color: #75ABFF;
+    color: #00afd0;
     background: none;
+    border: none;
 }
 
 /* input-placeholder settings */
 ::-webkit-input-placeholder {
+    font-size: inherit;
+    line-height: 32px;
     color: #888;
 }
 :-moz-placeholder { /* Firefox 18- */
+    font-size: inherit;
     color: #888;
 }
 ::-moz-placeholder {  /* Firefox 19+ */
+    font-size: inherit;
     color: #888;
 }
 :-ms-input-placeholder {
+    font-size: inherit;
     color: #888;
 }
 
@@ -175,76 +247,97 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
-
-/* icons & stuff */
-
-.searchicon{
-    width: 30px;
-    background-image: url("../img/search.png") !important;
-    background-size: 20px !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #888 !important;
 }
 
+/* loginform ---------------------------------------------------------------- */
+
+.searchbar{
+    height: 50px;
+    overflow: hidden;
+    background: #ddd;
+}
+.login{
+    height: 0px;
+    overflow: hidden;
+    background: #ddd;
+}
+.login.open{
+    height: 50px;
+    opacity: 1;
+}
+.searchform{
+    padding: 10px 15px 5px 15px;
+    float: left;
+}
+.loginform{
+    padding: 10px 15px 5px 15px;
+    float: right;
+}
+.loginform input[type="text"],
+.loginform input[type="password"]{
+    width: 120px;
+}
+.loginform button,
+.searchform button{
+    width: 35px;
+    max-height: 30px;
+    text-align: center;
+}
+
+/* admin edit form */
+
+.adminform{
+    display: inline-block;
+    margin-bottom: 10px;
+}
 
 /* errors & success --------------------------------------------------------- */
 
-.error-inline{
-    display: inline-block;
+.error{
+    display: block;
     padding: 5px 10px;
     margin-bottom: 10px;
     font-size: 0.9em;
     color: #fff;
-    background: #d9534f;
+    background: #ff5137;
+    cursor: pointer;
 }
-.error-inline:last-of-type{
-    margin-bottom: 0;
-}
-.error-inline a{
+.error a{
     color: #fff;
     text-decoration: underline;
 }
-.error-inline a:hover,
-.error-inline a:focus{
+.error a:hover,
+.error a:focus{
     opacity: 0.75;
 }
 
-.success-inline{
-    display: inline-block;
+.success{
+    display: block;
     padding: 5px 10px;
     margin-bottom: 10px;
     font-size: 0.9em;
     color: #fff;
-    background: #5cb85c;
+    background: #0acd58;
+    cursor: pointer;
 }
-.success-inline:last-of-type{
-    margin-bottom: 0;
-}
-.success-inline a{
+.success a{
     color: #fff;
     text-decoration: underline;
 }
-.success-inline a:hover,
-.success-inline a:focus{
+.success a:hover,
+.success a:focus{
     opacity: 0.75;
 }
 
-.info-inline{
-    display: inline-block;
+.info{
+    display: block;
     padding: 5px 10px;
     margin-bottom: 10px;
     font-size: 0.9em;
-    color: #fff;
-    background: #666;
-}
-.info-inline:last-of-type{
-    margin-bottom: 0;
-}
-.info-inline a{
-    color: #fff;
-    text-decoration: underline;
-}
-.info-inline a:hover,
-.info-inline a:focus{
-    opacity: 0.75;
+    color: #777;
+    background: #fff;
+    border: 1px solid #ddd;
 }

@@ -14,6 +14,23 @@
         }
     }
 
+    function keepSearchValue(){
+        if (isset($_POST["searchQuery"])){
+            echo "value='" . $_POST["searchQuery"] . "'";
+        } else if (isset($_GET["s"])){
+            echo "value='" . $_GET["s"] . "'";
+        }
+    }
+
+    // thread functions
+
+    function cleanInput($str){
+        $str = trim($str);
+        $str = mb_convert_encoding($str, 'UTF-8', 'UTF-8');
+        $str = htmlentities($str, ENT_QUOTES, 'UTF-8');
+        return $str;
+    }
+
     function excerpt( $content ){
         if (strlen($content) > 100) {
             $a = $content;
@@ -38,6 +55,6 @@
             $average = round($average, 1) . "/5";
             return $average;
         }
-
     }
+
 ?>

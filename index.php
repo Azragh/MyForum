@@ -1,11 +1,6 @@
-<?php require_once("template/header.php"); ?>
+<?php require_once("tmpl/header.php"); ?>
 
-    <div class="main">
+    <h1>Startseite</h1>    
+    <?php require "inc/threads_latest.php"; ?>
 
-        <h1>Startseite</h1>
-        <h2>Letzte Beiträge:</h2>
-        <?php require "inc/forum/latestthreads.php"; ?>
-
-    </div>
-
-<?php require_once("template/footer.php"); ?>
+<?php require_once("tmpl/footer.php"); ?>

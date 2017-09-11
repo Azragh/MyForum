@@ -1,9 +1,4 @@
 <?php
-
-    $con = new mysqli('localhost', 'root', '', 'browser') or die(mysql_error());
-/*
-    if($con->connect_errno > 0){
-        die('Keine Verbindung zur Datenbank.. [' . $con->connect_error . ']');
-    }
-*/
+error_reporting(0);
+$db = new mysqli('localhost', 'root', '', 'forum-db') or die(mysql_error());
 ?>

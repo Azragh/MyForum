@@ -1,15 +1,23 @@
-<?php require_once "template/header.php";  ?>
+<?php require_once "tmpl/header.php";  ?>
 
-    <div class="main">
+    <h1>Forum</h1>
 
-        <h1>Forum</h1>
-        <?php require "inc/forum/threadform.php"; ?>
+    <?php
+        if (!isset($_SESSION["user"])){
+            echo "<p class='info'>Melde dich an, um Beiträge verfassen und kommentieren zu können. Wenn du noch keinen Account hast, kannst du dich hier <a href='register.php'>registrieren</a>.";
+        } else {
+            echo "<p>Willkommen, " . $_SESSION['user'] . "!</p>";
+            echo "<p>Deine Benutzerrolle: " . $_SESSION['role'] . "</p>";
+            if ( $_SESSION['role'] == "admin" ) {
+                require "inc/forms/threadform.php";
+            }
+        }
 
-        <hr>
+        if (!isset($_GET["user"])){
+	        require "inc/threads_all.php";
+        } else {
+            require "inc/threads_by_user.php";
+        }
+    ?>
 
-        <h2>Alle Beiträge:</h2>
-    	<?php require "inc/forum/threadlist.php"; ?>
-
-    </div>
-
-<?php require_once "template/footer.php";  ?>
+<?php require_once "tmpl/footer.php";  ?>
