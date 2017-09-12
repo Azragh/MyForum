@@ -4,6 +4,7 @@
 --
 -- Host: 127.0.0.1
 -- Erstellungszeit: 11. Sep 2017 um 09:10
+
 -- Server-Version: 10.1.10-MariaDB
 -- PHP-Version: 5.5.33
 
