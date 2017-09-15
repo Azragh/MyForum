@@ -2,7 +2,7 @@
 
     <form class="form registerform" method="post">
         <div class="form-row">
-            <label>Benutzername:</label><br>
+            <label>Username:</label><br>
             <input type="text" name="username" maxlength="20" <?php keepUsernameValue(); ?> required>
         </div>
         <div class="form-row">
@@ -10,15 +10,15 @@
             <input type="email" name="email" <?php keepEmailValue(); ?> required>
         </div>
         <div class="form-row">
-            <label>Passwort:</label><br>
+            <label>Password:</label><br>
             <input type="password" name="password" required>
         </div>
         <div class="form-row">
-            <label>Passwort wiederholen:</label><br>
+            <label>Password Again:</label><br>
             <input type="password" name="password2" required>
         </div>
         <div class="form-row">
-            <button type="submit"><span>Registrieren</span></button>
+            <button type="submit"><span>Register</span></button>
         </div>
     </form>
 
@@ -45,7 +45,7 @@
             $result = $db->query( $userquery );
 
             if( $db->affected_rows == 1 ){
-                echo "<p class='error'>Dieser Benutzername ist bereits vergeben..</p>";
+                echo "<p class='error'>This username is already taken.</p>";
                 $result->free();
             } else {
                 $usrcheck = true;
@@ -57,7 +57,7 @@
             $result = $db->query( $mailquery );
 
             if( $db->affected_rows == 1 ){
-                echo "<p class='error'>Diese Email ist bereits vergeben..</p>";
+                echo "<p class='error'>This email has already been used.</p>";
                 $result->free();
             } else {
                 $mailcheck = true;
@@ -66,7 +66,7 @@
 
             // check if passwords match
             if( $password !== $password2 ) {
-                echo "<p class='error'>Die Passwörter stimmen nicht überein..</p>";
+                echo "<p class='error'>The passwords do not match.</p>";
             } else {
                 // A salt is randomly generated here to protect again brute force attacks
                 $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647));
@@ -114,22 +114,22 @@
                     $mail->Encoding = "base64";
                     $mail->CharSet = "UTF-8";
 
-                    $mail->Subject = "Account-Aktivierung";
-                    $mail->Body    = "<p>Hey, " . $username . "! Dein Account ist erfolgreich angelegt worden.</p>
-                    <p>Klicke auf <b><a href='http://localhost/forum/register.php?reg=" . $regkey . "'>diesen Link</a></b>, um dich anmelden zu können.";
-
-                    $mail->AltBody = "Hey, " . $username . "! Dein Account ist erfolgreich angelegt worden.
-                    Kopiere folgenden Link und öffne ihn in deinem Browser: http://localhost/forum/register.php?reg=" . $regkey;
+                    $mail->Subject = "Account Activation";
+                    $mail->Body    = "<p>Hey, " . $username . "! Your account has been created successfully.</p>
+                    <p>Click on <b><a href='http://localhost/register.php?reg=" . $regkey . "'>This link</a></b>, to login.";
+                 
+                    $mail->AltBody = "Hey, " . $username . "! Your account has been created successfully.
+                    Copy and paste this link into your browser: http://localhost/register.php?reg=" . $regkey;
 
                     if(!$mail->send()) {
-                        echo "<p class='error'>Es konnte leider kein aktivierungslink an die angegebene Email gesendet werden..</p>";
+                        echo "<p class='error'>Sorry, no activation link could be sent to the specified email.</p>";
                         echo "Mailer Error: " . $mail->ErrorInfo;
                     } else {
-                        echo "<p class='success'>Du hast dich erfolgreich registriert! Klicke auf den Link in der Bestätigungsmail, um dich einloggen zu können.</p>";
+                        echo "<p class='success'>You have successfully registered! Click on the link in the confirmation mail to log in.</p>";
                     }
 
                 } else {
-                    echo "<p class='error'>Da ist was schief gelaufen..</p>";
+                    echo "<p class='error'>There was something wrong.</p>";
                 }
             }
         }

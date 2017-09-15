@@ -68,12 +68,12 @@
             $_SESSION["activated"] = "activated";
 
         } else if ( $login_ok && $activated_ok == false ) {
-            $login_errors .= "<p class='error'>Der Account ist noch nicht aktiviert worden - überprüfe deine Emails.</p>";
+            $login_errors .= "<p class='error'>The account has not yet been activated - check your email.</p>";
             session_destroy();
             $_SESSION = array();
 
         } else {
-            $login_errors .= "<p class='error'>Falsche anmeldedaten eingegeben..</p>";
+            $login_errors .= "<p class='error'>Incorrect login data entered.</p>";
             session_destroy();
             $_SESSION = array();
         }

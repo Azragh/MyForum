@@ -11,7 +11,7 @@
         $row = $result->fetch_assoc();
 
         if ( $row['activated'] == 1 ){
-            echo "<p class='success'>der Account wurde bereits aktiviert.. </p>";
+            echo "<p class='success'>The account has already been activated.</p>";
 
         } else {
             $result->free();
@@ -19,14 +19,14 @@
             $result = $db->query( $activatequery );
 
             if( $db->affected_rows == 1 ){
-                echo "<p class='success'>Der Account wurde erfolgreich aktiviert! Du kannst dich nun anmelden und Beiträge kommentieren.</p>";
+                echo "<p class='success'>The account has been successfully activated! You can now login and post comments / threads.</p>";
             } else {
-                echo "<p class='error'>Da ist was schief gelaufen..</p>";
+                echo "<p class='error'>There was something wrong.</p>";
             }
         }
 
     } else {
-        echo "<p class='error'>Der Aktivierungslink scheint nicht zu stimmen..</p>";
+        echo "<p class='error'>The activation link does not seem to be correct.</p>";
         $result->free();
     }
 

@@ -10,7 +10,7 @@
         }
 
     } else {
-        echo "<p class='error'>Keine Beiträge gefunden..</p>";
+        echo "<p class='error'>No posts found.</p>";
     }
 
 ?>

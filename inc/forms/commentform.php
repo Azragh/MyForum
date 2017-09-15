@@ -1,11 +1,11 @@
 <div class="form-container">
-    <h3>Kommentar verfassen:</h3>
+    <h3>Write a Comment:</h3>
     <form class="form" action="<?php echo 'thread.php?tid=' . $_GET["tid"]; ?>" method="POST">
         <div class="form-row">
             <textarea name="cont" rows="4" required></textarea>
         </div>
         <div class="form-row">
-            <button type="submit" name="replySent"><span>Kommentar Absenden</span></button>
+            <button type="submit" name="replySent"><span>Comment Send</span></button>
         </div>
     </form>
 </div>
@@ -34,9 +34,9 @@
         if ( $db->query($insertquery) == TRUE ) {
 
             if ( $role == "user" ) {
-                $success = "<p class='success'>Dein Kommentar wird eingetragen, sobald er vom Autor des Beitrags freigegeben wird. Vielen Dank!</p>";
+                $success = "<p class='success'>Your comment will be entered as soon as it is released by the author of the post. Many Thanks!</p>";
             } else {
-                $success = "<p class='success'>Kommentar wurde eingetragen.</p>";
+                $success = "<p class='success'>Comment has been entered.</p>";
 
                 // send notification mails to followers
                 $qu = mysqli_query($db, "SELECT * FROM subscriptions WHERE threadID='$thread'");
@@ -64,7 +64,7 @@
 
 
         } else {
-            $errors .= "<p class='error'>Kommentar-Eintrag fehlgeschlagen..</p>";
+            $errors .= "<p class='error'>Comment entry failed.</p>";
         }
     }
 

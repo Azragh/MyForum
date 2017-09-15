@@ -1,21 +1,21 @@
 <div class="form-container">
 
-    <h2>Beitrag erstellen:</h2>
+    <h2>Create Post:</h2>
     <form id="threadform" class="form" action="forum.php" method="POST">
         <div class="form-row">
-            <label>Titel:</label><br>
+            <label>Title:</label><br>
             <input type="text" name="title" required>
         </div>
         <div class="form-row">
-            <label>Beitrag:</label><br>
+            <label>Content:</label><br>
             <textarea name="description" rows="4" required></textarea>
         </div>
         <div class="form-row">
-            <label>Tags (durch Komma getrennt):</label><br>
+            <label>Tags:</label><br>
             <input type="text" name="tags" required>
         </div>
         <div class="form-row">
-            <button type="submit" name="createThread"><span>Beitrag Erstellen</span></button>
+            <button type="submit" name="createThread"><span>Create Post</span></button>
         </div>
     </form>
 
@@ -37,9 +37,9 @@
 
             $q = mysqli_query($db, "INSERT INTO threads VALUES ('', '$title', '$description', '$user', '0', '0', '$tags', '$date') ") or die(mysql_error());
             if ($q) {
-                echo '<p class="success">Dein Beitrag wurde soeben erstellt.</p>';
+                echo '<p class="success">Your post has just been created.</p>';
             } else {
-                echo '<p class="error">Beitrag konnte nicht erstellt werden..</p>';
+                echo '<p class="error">Unable to create post.</p>';
             }
         }
     }

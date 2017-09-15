@@ -12,11 +12,11 @@
 			<?php $q = mysqli_query($db, "SELECT * FROM subscriptions WHERE email='$email' AND threadID='$id'"); ?>
 
 			<?php if (mysqli_num_rows($q) <= 0): ?>
-				<p class="nomargin">Wenn du per Email über neue Kommentare benachrichtigt werden möchtest, klicke auf
-				<input type="submit" class="submit-inline" name="subscribe" value="Beitrag Folgen">.</p>
+				<p class="nomargin">If you'd like to be notified of new comments by email, click
+ <input type="submit" class="submit-inline" name="subscribe" value="Subscribe">.</p>
 			<?php else: ?>
-				<p class="nomargin">Du folgst diesem Beitrag. Wenn du nicht mehr benachrichtigt werden möchtest, klicke auf
-				<input type="submit" class="submit-inline" name="unsubscribe" value="nicht mehr Folgen">.</p>
+				<p class="nomargin">You are following this post. If you do not want to be notified, click
+<input type="submit" class="submit-inline" name="unsubscribe" value="Unsubscribe">.</p>
 			<?php endif; ?>
 		</form>
 	</div>
@@ -32,13 +32,13 @@
 		if (mysqli_num_rows($q) <= 0) {
 			$qu = mysqli_query($db, "INSERT INTO subscriptions VALUES ('', '$id', '$email')");
 			if ($qu) {
-				$success .= "<p class='success'>Subscription erflogreich - du wirst nun per Email über neue Kommentare informiert.</p>";
+				$success .= "<p class='success'>Subscription Success - you will be informed by email about new comments.</p>";
 			} else {
-				$errors .= "<p class='error'>Fehler bei der Subscription..</p>";
+				$errors .= "<p class='error'>Subscription failed.</p>";
             }
 		} else {
 			ob_start();
-			$errors .= "<p class='error'>Du wirst schon über neue Kommentare informiert..</p>";
+			$errors .= "<p class='error'>You are already informed about new comments.</p>";
         }
 
 	} else if (isset($_POST['unsubscribe']) && isset($id) || isset($_GET['unsub']) && isset($id)) {
@@ -46,9 +46,9 @@
 		if (mysqli_num_rows($q) > 0) {
 			$qu = mysqli_query($db, "DELETE FROM subscriptions WHERE email='$email' AND threadID='$id'");
 			if ($qu) {
-				$success .= "<p class='success'>Subscription erfolgreich deaktiviert. Du solltest nun keine Emails mehr erhalten.</p>";
+				$success .= "<p class='success'>Subscription successfully disabled. You should no longer receive emails.</p>";
 			} else {
-				$errors .= "<p class='error'>Subscription konnte nicht gelöscht werden..</p>";
+				$errors .= "<p class='error'>Error.</p>";
             }
 		}
 

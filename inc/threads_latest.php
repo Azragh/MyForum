@@ -1,4 +1,4 @@
-<h2>Letzte Beiträge:</h2>
+<h2>Lastest Threads:</h2>
 <?php
 
     $nq = mysqli_query($db, "SELECT * FROM threads ORDER BY id DESC LIMIT 3");
@@ -10,7 +10,7 @@
         }
 
     } else {
-        echo "<p class='error'>Keine Beiträge gefunden..</p>";
+        echo "<p class='error'>No posts found.</p>";
     }
 
 ?>

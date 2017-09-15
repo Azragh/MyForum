@@ -28,9 +28,9 @@
     <div class='thread-content'>
         <?php echo $content; ?>
         <div class='thread-meta'>
-            <span class="author">Verfasst von <a href="forum.php?user=<?php echo strtolower($author); ?>"><?php echo $author; ?></a></span>
+            <span class="author">Post By: <a href="forum.php?user=<?php echo strtolower($author); ?>"><?php echo $author; ?></a></span>
             <span class="separator"> | </span>
-            <span class="date">Veröffentlicht am <?php echo $date ?></span>
+            <span class="date">Date Posted <?php echo $date ?></span>
             <span class="separator"> | </span>
             <span class="tags">Tags:
                 <?php

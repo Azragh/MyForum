@@ -21,16 +21,16 @@
                 $threadtitle = $info['title'];
 
                 $replies[$rid]  = "<li class='reply'>";
-                $replies[$rid] .= "<div class='reply-author'><a href='forum.php?user=" . strtolower($reauthor) . "'>" . $reauthor . "</a> Antwortet auf den Beitrag <a href='thread.php?tid=".$threadid."'>$threadtitle</a>:</div>";
+                $replies[$rid] .= "<div class='reply-author'><a href='forum.php?user=" . strtolower($reauthor) . "'>" . $reauthor . "</a> Reply to the post <a href='thread.php?tid=".$threadid."'>$threadtitle</a>:</div>";
                 $replies[$rid] .= "<div class='reply-content'>" . $recontent . "</div>";
                 $replies[$rid] .= "</li>";
 
                 $replies[$rid] .= "<form action='admin.php?free=$rid&tid=$threadid' class='adminform' method='post'>";
-                $replies[$rid] .= "<input type='submit' name='freecomment' class='submit-inline' value='Kommentar freigeben'> &nbsp; ";
+                $replies[$rid] .= "<input type='submit' name='freecomment' class='submit-inline' value='Leave comment'> &nbsp; ";
                 $replies[$rid] .= "</form>";
 
                 $replies[$rid] .= "<form action='admin.php?kill=$rid&tid=$threadid' class='adminform' method='post'>";
-                $replies[$rid] .= "<input type='submit' name='killcomment' class='submit-inline' value='Kommentar löschen'>";
+                $replies[$rid] .= "<input type='submit' name='killcomment' class='submit-inline' value='Delete the comment'>";
                 $replies[$rid] .= "</form>";
 
             }

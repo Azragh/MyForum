@@ -8,7 +8,7 @@
         $query = mysqli_query($db, "UPDATE replies SET status='1' WHERE id='$id'");
         if ($query){
 
-            $edit_success = "<p class='success'>Der Kommentar wurde freigegeben.</p>";
+            $edit_success = "<p class='success'>The comment has been released.</p>";
 
             // send notification mails to followers
             $qu = mysqli_query($db, "SELECT * FROM subscriptions WHERE threadID='$threadid'");
@@ -22,7 +22,7 @@
             }
 
         } else {
-            $edit_errors = "<p class='error'>Der Kommentar konnte nicht freigegeben werden.</p>";
+            $edit_errors = "<p class='error'>The comment could not be shared.</p>";
         }
 
         $_SESSION['edit_errors'] = $edit_errors;
@@ -38,9 +38,9 @@
 
         $query = mysqli_query($db, "DELETE FROM replies WHERE id='$id'");
         if ($query){
-            $edit_success = "<p class='success'>Der Kommentar wurde gelöscht.</p>";
+            $edit_success = "<p class='success'>The comment has been deleted.</p>";
         } else {
-            $edit_errors = "<p class='error'>Der Kommentar konnte nicht gelöscht werden.</p>";
+            $edit_errors = "<p class='error'>The comment could not be deleted.</p>";
         }
 
         $_SESSION['edit_errors'] = $edit_errors;

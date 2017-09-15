@@ -4,14 +4,20 @@
 
     <?php
         if (!isset($_SESSION["user"])){
-            echo "<p class='info'>Melde dich an, um Beiträge verfassen und kommentieren zu können. Wenn du noch keinen Account hast, kannst du dich hier <a href='register.php'>registrieren</a>.";
+            echo "<p class='info'>Please login to post a comment. If you do not have an account yet, you can register here <a href='register.php'>Register</a>.";
         } else {
-            echo "<p>Willkommen, " . $_SESSION['user'] . "!</p>";
-            echo "<p>Deine Benutzerrolle: " . $_SESSION['role'] . "</p>";
+            echo "<p>Welcome, " . $_SESSION['user'] . "!</p>";
+            echo "<p>Your Role: " . $_SESSION['role'] . "</p>";
             if ( $_SESSION['role'] == "admin" ) {
                 require "inc/forms/threadform.php";
             }
         }
+if (!isset($_SESSION["user"])){
+} else {
+            if ( $_SESSION['role'] == "user" ) {
+                require "inc/forms/threadform.php";
+            }
+}
 
         if (!isset($_GET["user"])){
 	        require "inc/threads_all.php";

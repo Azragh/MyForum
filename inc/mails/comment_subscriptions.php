@@ -33,17 +33,17 @@
             $ntfmail->addReplyTo('noreply@new-time.ch', 'Information');
 
 
-            $ntfmail->Subject = "Neuer Kommentar zu '$title'";
-            $ntfmail->Body    = "<p><b>$author schreibt:</b></p><p>'".nl2br($cont)."'</p>";
-            $ntfmail->Body   .= "<p><a href='http://localhost/forum/thread.php?tid=" . $threadid . "'>Zum Beitrag</a>&nbsp;&nbsp;";
-            $ntfmail->Body   .= "<a href='http://localhost/forum/thread.php?tid=" . $threadid . "&unsub'>Beitrag nicht mehr folgen</a></p>";
+            $ntfmail->Subject = "New comment on '$title'";
+            $ntfmail->Body    = "<p><b>$author writes:</b></p><p>'".nl2br($cont)."'</p>";
+            $ntfmail->Body   .= "<p><a href='http://localhost/thread.php?tid=" . $threadid . "'>To the Contribution</a>&nbsp;&nbsp;";
+            $ntfmail->Body   .= "<a href='http://localhost/thread.php?tid=" . $threadid . "&unsub'>Stop following contribution</a></p>";
 
-            $ntfmail->AltBody = "Ein neuer Kommentar wurde verfasst. \r\n \r\n$author sagt: \r\n'$cont'\r\n \r\n";
-            $ntfmail->AltBody.= "Link zum Beitrag: http://localhost/forum/thread.php?tid=" . $threadid;
+            $ntfmail->AltBody = "A new comment has been posted. \r\n \r\n$author sagt: \r\n'$cont'\r\n \r\n";
+            $ntfmail->AltBody.= "Link to the post: http://localhost/thread.php?tid=" . $threadid;
 
 
             if(!$ntfmail->send()) {
-                $errors .= "<p class='error'>Die Subscription-Mail konnte nicht versendet werden</p>";
+                $errors .= "<p class='error'>The subscription mail could not be sent</p>";
                 $errors .= "<p class='error'>Mailer Error: " . $ntfmail->ErrorInfo . "</p>";
             }
 

@@ -11,7 +11,7 @@
             include "admin/list_opencomments.php";
 
         } else {
-            echo "<p class='info'>Um deine Beiträge verwalten zu können, musst du dich vorher anmelden.</p>";
+            echo "<p class='info'>To manage your posts, you must log in before.</p>";
         }
 
     ?>

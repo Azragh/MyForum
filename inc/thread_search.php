@@ -23,7 +23,7 @@
 
 		$_SESSION['lastSearch'] = $s;
 
-		echo "<p>Beiträge mit dem Tag <strong>" . $s . "</strong>:</p>";
+		echo "<p>Posts with the tag <strong>" . $s . "</strong>:</p>";
 
 		$q = mysqli_query($db, "SELECT * FROM threads ORDER BY id DESC");
 		if (mysqli_num_rows($q) > 0) {
@@ -53,7 +53,7 @@
 	}
 
 	if ( $noresults == true ) {
-		echo "<p class='error'>Es konnten keine Beiträge mit entsprechenden Tags gefunden werden.</p>";
+		echo "<p class='error'>You can not post new topics in this forum.</p>";
 	}
 
 ?>

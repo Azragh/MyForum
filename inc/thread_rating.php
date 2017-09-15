@@ -8,7 +8,7 @@
 		// check if thread has been rated before
 		$qq = mysqli_query($db, "SELECT * FROM ratings WHERE threadID='$id' AND user_ip='$user_ip'") or die(mysql_error());
 		if (mysqli_num_rows($qq) > 0) {
-			$errors .= "<p class='error'>Du hast diesen Beitrag schon bewertet. <a href='thread.php?tid=$id'>zurück</a></p>";
+			$errors .= "<p class='error'>You have already rated this post. <a href='thread.php?tid=$id'> Back </a></p>";
 
 		} else {
 
@@ -32,9 +32,9 @@
 				$qr = mysqli_query($db, "INSERT INTO ratings SET threadID='$id', user_ip='$user_ip'") or die(mysql_error());
 
 				if ( $q && $qr ) {
-					$success .= "<p class='success'>Der Beitrag wurde bewertet. <a href='thread.php?tid=$id'>Zurück</a></p>";
+					$success .= "<p class='success'>The contribution was evaluated. <a href='thread.php?tid=$id'> Back </a></p>";
 				} else {
-					$errors .= "<p class='error'>Der Beitrag konnte nicht bewertet werden. <a href='thread.php?tid=$id'>Zurück</a></p>";
+					$errors .= "<p class='error'>The contribution could not be evaluated. <a href='thread.php?tid=$id'> Back </a></p>";
 				}
 
 			}

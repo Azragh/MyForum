@@ -46,11 +46,11 @@
 			}
 
         } else {
-            $errors .= "<p class='error'>Die Thread-ID scheint nicht zu stimmen..</p>";
+            $errors .= "<p class='error'>The thread ID does not seem to match.</p>";
         }
 
     } else {
-        $errors .= "<p class='error'>Die Thread-ID scheint nicht zu stimmen..</p>";
+        $errors .= "<p class='error'>The thread ID does not seem to match.</p>";
     }
 
 ?>
@@ -72,9 +72,9 @@
         <div class="thread-content">
             <p><?php echo nl2br($content); ?></p>
             <div class="thread-meta">
-                <span class="author">Verfasst von <a href="forum.php?user=<?php echo strtolower($author); ?>"><?php echo $author; ?></a></span>
+                <span class="author">Post By: <a href="forum.php?user=<?php echo strtolower($author); ?>"><?php echo $author; ?></a></span>
                 <span class="separator"> | </span>
-                <span class="date">Veröffentlicht am <?php echo $date ?></span>
+                <span class="date">Date Posted <?php echo $date ?></span>
                 <span class="separator"> | </span>
                 <span class="tags">Tags:
                     <?php
@@ -87,7 +87,7 @@
                     ?>
                 </span>
                 <span class="ratingnav">
-                	Beitrag bewerten:
+                	Rating:
                 	<a href="<?php echo 'thread.php?tid='.$_GET['tid'].'&rating=1'; ?>">1 </a>
                 	<a href="<?php echo 'thread.php?tid='.$_GET['tid'].'&rating=2'; ?>">2 </a>
                 	<a href="<?php echo 'thread.php?tid='.$_GET['tid'].'&rating=3'; ?>">3 </a>
@@ -115,7 +115,7 @@
         <!-- replies -->
         <?php
             if ( $replies != array() ){
-                echo "<h3>Kommentare:</h3>";
+                echo "<h3>Reply:</h3>";
                 echo "<ul class='replies'>";
                 foreach ( $replies as $reply ) {
                     echo $reply;

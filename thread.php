@@ -3,13 +3,13 @@
     <?php
 
         if (!isset($_SESSION["user"])){
-            echo "<p class='info'>Melde dich an, um diesen Beitrag kommentieren zu können. Falls du noch keinen Account hast, kannst du dich hier <a href='register.php'>registrieren</a>.";
+            echo "<p class='info'>Sign up to comment on this post. If you do not have an account yet, you can register here <a href='register.php'>Register</a>.";
         }
 
         require "inc/thread_content.php";
 
         if ( $real_id == false ) {
-            echo "<p class='error'>Diesen Beitrag scheint es nicht (mehr) zu geben.</p>";
+            echo "<p class='error'>This contribution does not seem to exist anymore.</p>";
         }
 
         if ( isset($_SESSION["user"]) && $real_id == true ) {
